@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
@@ -54,9 +54,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.95);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--grey-100);
+    width: 100%;
+    max-width: 100%;
   }
 
   .logo {
@@ -68,6 +70,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-shrink: 0;
   }
 
   .logo-mark {
@@ -95,6 +98,8 @@
     display: flex;
     gap: 36px;
     list-style: none;
+    flex: 1;
+    justify-content: center;
   }
 
   nav ul a {
@@ -116,6 +121,7 @@
     font-weight: 600;
     text-decoration: none;
     transition: background 0.2s;
+    flex-shrink: 0;
   }
 
   .nav-cta:hover { background: var(--blue-600); }
@@ -127,6 +133,8 @@
     background: var(--off-white);
     position: relative;
     overflow: hidden;
+    width: 100%;
+    max-width: 100%;
   }
 
   .hero-grid {
@@ -138,6 +146,7 @@
     background-size: 80px 80px;
     mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
     opacity: 0.6;
+    pointer-events: none;
   }
 
   .hero-content {
@@ -148,6 +157,7 @@
     grid-template-columns: 1.1fr 1fr;
     gap: 60px;
     align-items: center;
+    width: 100%;
   }
 
   .badge {
@@ -211,7 +221,7 @@
   }
 
   .hero p.lead {
-    font-size: 19px;
+    font-size: clamp(16px, 2vw, 19px);
     color: var(--grey-700);
     margin-bottom: 40px;
     max-width: 540px;
@@ -224,9 +234,7 @@
     flex-wrap: wrap;
   }
 
-  .btn-primary {
-    background: var(--navy-900);
-    color: var(--white);
+  .btn-primary, .btn-secondary {
     padding: 16px 32px;
     border-radius: 100px;
     font-size: 15px;
@@ -238,6 +246,12 @@
     transition: all 0.2s;
     border: none;
     cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background: var(--navy-900);
+    color: var(--white);
   }
 
   .btn-primary:hover {
@@ -248,16 +262,7 @@
   .btn-secondary {
     background: transparent;
     color: var(--navy-900);
-    padding: 16px 32px;
-    border-radius: 100px;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
     border: 1.5px solid var(--navy-900);
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    transition: all 0.2s;
   }
 
   .btn-secondary:hover {
@@ -271,11 +276,12 @@
     margin-top: 64px;
     padding-top: 40px;
     border-top: 1px solid var(--grey-300);
+    flex-wrap: wrap;
   }
 
   .stat-num {
     font-family: var(--display);
-    font-size: 36px;
+    font-size: clamp(28px, 4vw, 36px);
     font-weight: 700;
     color: var(--navy-900);
     letter-spacing: -0.02em;
@@ -336,11 +342,14 @@
   /* ---------- SECTION GENERIC ---------- */
   section {
     padding: 120px 5vw;
+    width: 100%;
+    max-width: 100%;
   }
 
   .section-inner {
     max-width: 1400px;
     margin: 0 auto;
+    padding: 0 20px;
   }
 
   .section-tag {
@@ -374,7 +383,7 @@
   }
 
   .section-lead {
-    font-size: 18px;
+    font-size: clamp(16px, 2vw, 18px);
     color: var(--grey-700);
     max-width: 680px;
     margin-bottom: 64px;
@@ -396,7 +405,7 @@
 
   .brand-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
     margin-top: 80px;
   }
@@ -414,16 +423,9 @@
     transform: translateY(-4px);
   }
 
-  .brand-num {
-    font-family: var(--mono);
-    font-size: 13px;
-    color: var(--blue-400);
-    margin-bottom: 16px;
-  }
-
   .brand-card h3 {
     font-family: var(--display);
-    font-size: 24px;
+    font-size: clamp(20px, 3vw, 24px);
     font-weight: 600;
     margin-bottom: 12px;
     letter-spacing: -0.02em;
@@ -435,24 +437,6 @@
     line-height: 1.6;
   }
 
-  .brand-decor {
-    position: absolute;
-    bottom: -100px;
-    right: -100px;
-    width: 400px;
-    height: 400px;
-    border: 1px solid var(--navy-700);
-    border-radius: 50%;
-  }
-
-  .brand-decor::before {
-    content: '';
-    position: absolute;
-    inset: 60px;
-    border: 1px solid var(--navy-700);
-    border-radius: 50%;
-  }
-
   /* ---------- PRODUCT SECTION ---------- */
   .product {
     background: var(--off-white);
@@ -461,31 +445,22 @@
   .product-showcase {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
-    gap: 80px;
+    gap: clamp(40px, 5vw, 80px);
     align-items: center;
     margin-top: 60px;
   }
 
   .product-info h3 {
     font-family: var(--display);
-    font-size: 48px;
+    font-size: clamp(32px, 5vw, 48px);
     font-weight: 700;
     letter-spacing: -0.03em;
     margin-bottom: 8px;
     color: var(--navy-950);
   }
 
-  .product-info .ref {
-    font-family: var(--mono);
-    font-size: 13px;
-    color: var(--grey-500);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 32px;
-  }
-
   .product-info p {
-    font-size: 16px;
+    font-size: clamp(14px, 1.5vw, 16px);
     color: var(--grey-700);
     margin-bottom: 32px;
   }
@@ -502,6 +477,8 @@
     padding: 18px 0;
     border-bottom: 1px solid var(--grey-300);
     font-size: 14px;
+    flex-wrap: wrap;
+    gap: 16px;
   }
 
   .spec-list .spec-key {
@@ -516,7 +493,7 @@
     color: var(--navy-900);
     font-weight: 600;
     font-family: var(--display);
-    font-size: 16px;
+    font-size: clamp(14px, 1.5vw, 16px);
   }
 
   .product-visual {
@@ -532,17 +509,6 @@
     justify-content: center;
   }
 
-  .product-corner {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    border: 2px solid var(--blue-600);
-  }
-  .corner-tl { top: 16px; left: 16px; border-right: none; border-bottom: none; }
-  .corner-tr { top: 16px; right: 16px; border-left: none; border-bottom: none; }
-  .corner-bl { bottom: 16px; left: 16px; border-right: none; border-top: none; }
-  .corner-br { bottom: 16px; right: 16px; border-left: none; border-top: none; }
-
   /* ---------- 3 FUNCTIONS ---------- */
   .functions {
     background: var(--white);
@@ -550,7 +516,7 @@
 
   .functions-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 24px;
     margin-top: 60px;
   }
@@ -574,43 +540,10 @@
   .fn-card:hover .fn-num,
   .fn-card:hover h3 { color: var(--white); }
   .fn-card:hover p { color: var(--blue-200); }
-  .fn-card:hover .fn-icon { border-color: var(--blue-400); }
-  .fn-card:hover .fn-icon svg { stroke: var(--blue-400); }
-
-  .fn-icon {
-    width: 64px;
-    height: 64px;
-    border: 1.5px solid var(--navy-900);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 32px;
-    transition: all 0.3s;
-  }
-
-  .fn-icon svg {
-    width: 32px;
-    height: 32px;
-    stroke: var(--navy-900);
-    fill: none;
-    stroke-width: 1.5;
-    transition: all 0.3s;
-  }
-
-  .fn-num {
-    position: absolute;
-    top: 24px;
-    right: 28px;
-    font-family: var(--mono);
-    font-size: 13px;
-    color: var(--grey-500);
-    transition: color 0.3s;
-  }
 
   .fn-card h3 {
     font-family: var(--display);
-    font-size: 28px;
+    font-size: clamp(22px, 3vw, 28px);
     font-weight: 600;
     letter-spacing: -0.02em;
     margin-bottom: 16px;
@@ -632,7 +565,7 @@
 
   .workflow-steps {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 24px;
     margin-top: 60px;
     position: relative;
@@ -672,7 +605,7 @@
 
   .step h4 {
     font-family: var(--display);
-    font-size: 20px;
+    font-size: clamp(18px, 2.5vw, 20px);
     font-weight: 600;
     letter-spacing: -0.02em;
     margin-bottom: 10px;
@@ -700,7 +633,7 @@
 
   .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 24px;
     margin-top: 60px;
   }
@@ -724,68 +657,20 @@
     transform: translateY(-6px);
   }
 
-  .price-label {
-    font-family: var(--mono);
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--blue-400);
-    margin-bottom: 12px;
-  }
-
-  .price-card.featured .price-label {
-    color: rgba(255,255,255,0.8);
-  }
-
   .price-title {
     font-family: var(--display);
-    font-size: 32px;
+    font-size: clamp(24px, 3vw, 32px);
     font-weight: 700;
     letter-spacing: -0.02em;
     margin-bottom: 24px;
   }
 
-  .price-amount {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-    margin-bottom: 8px;
-  }
-
   .price-value {
     font-family: var(--display);
-    font-size: 56px;
+    font-size: clamp(40px, 6vw, 56px);
     font-weight: 800;
     letter-spacing: -0.04em;
     line-height: 1;
-  }
-
-  .price-period {
-    font-family: var(--mono);
-    font-size: 14px;
-    color: var(--blue-200);
-  }
-
-  .price-card.featured .price-period {
-    color: rgba(255,255,255,0.9);
-  }
-
-  .price-desc {
-    color: var(--blue-200);
-    font-size: 15px;
-    margin: 24px 0 32px;
-    padding-bottom: 32px;
-    border-bottom: 1px solid var(--navy-700);
-  }
-
-  .price-card.featured .price-desc {
-    color: rgba(255,255,255,0.9);
-    border-bottom-color: rgba(255,255,255,0.2);
-  }
-
-  .price-features {
-    list-style: none;
-    margin-bottom: 32px;
   }
 
   .price-features li {
@@ -793,23 +678,8 @@
     align-items: flex-start;
     gap: 12px;
     padding: 10px 0;
-    font-size: 15px;
+    font-size: clamp(13px, 1.5vw, 15px);
     color: var(--blue-100);
-  }
-
-  .price-card.featured .price-features li {
-    color: var(--white);
-  }
-
-  .price-features li::before {
-    content: '→';
-    color: var(--blue-400);
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-
-  .price-card.featured .price-features li::before {
-    color: var(--white);
   }
 
   .price-cta {
@@ -826,6 +696,7 @@
     transition: all 0.2s;
     border: none;
     cursor: pointer;
+    margin-top: 24px;
   }
 
   .price-card.featured .price-cta {
@@ -836,14 +707,6 @@
   .price-cta:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  }
-
-  .pricing-note {
-    text-align: center;
-    margin-top: 40px;
-    color: var(--blue-200);
-    font-size: 13px;
-    font-family: var(--mono);
   }
 
   /* ---------- FOOTER ---------- */
@@ -860,18 +723,10 @@
 
   .footer-top {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    gap: 60px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(40px, 5vw, 60px);
     padding-bottom: 60px;
     border-bottom: 1px solid var(--grey-100);
-  }
-
-  .footer-brand p {
-    color: var(--grey-700);
-    font-size: 14px;
-    margin-top: 20px;
-    line-height: 1.6;
-    max-width: 320px;
   }
 
   .footer-col h5 {
@@ -883,18 +738,13 @@
     margin-bottom: 20px;
   }
 
-  .footer-col ul {
-    list-style: none;
-  }
-
-  .footer-col ul li {
-    margin-bottom: 12px;
-  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 12px; }
 
   .footer-col a {
     color: var(--navy-900);
     text-decoration: none;
-    font-size: 14px;
+    font-size: clamp(13px, 1.5vw, 14px);
     transition: color 0.2s;
   }
 
@@ -908,20 +758,34 @@
     font-size: 13px;
     color: var(--grey-500);
     font-family: var(--mono);
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  /* ---------- RESPONSIVE - TABLET (1200px and below) ---------- */
+  @media (max-width: 1200px) {
+    .hero-content { gap: 40px; }
+    section { padding: 100px 5vw; }
+    .product-showcase { grid-template-columns: 1fr; }
   }
 
   /* ---------- RESPONSIVE - TABLET (900px and below) ---------- */
   @media (max-width: 900px) {
     nav ul { display: none; }
     
-    .hero-content { grid-template-columns: 1fr; }
-    .hero-stats { flex-wrap: wrap; gap: 24px; }
-    .hero p.lead { font-size: 16px; }
+    .hero {
+      min-height: auto;
+      padding: 120px 5vw 60px;
+    }
+
+    .hero-content { 
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    .hero-stats { flex-direction: column; gap: 20px; }
     
     .brand-grid { grid-template-columns: repeat(2, 1fr); }
-    
-    .product-showcase { grid-template-columns: 1fr; gap: 40px; }
-    .product-info h3 { font-size: 36px; }
     
     .functions-grid { grid-template-columns: repeat(2, 1fr); }
     
@@ -930,22 +794,18 @@
     
     .pricing-grid { grid-template-columns: 1fr; }
     
-    .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
-    
     .machine-label { display: none; }
     
     section { padding: 80px 5vw; }
   }
 
-  /* ---------- RESPONSIVE - MOBILE (640px and below) ---------- */
-  @media (max-width: 640px) {
+  /* ---------- RESPONSIVE - MOBILE (768px and below) ---------- */
+  @media (max-width: 768px) {
     nav {
       padding: 14px 4vw;
     }
 
-    .logo {
-      font-size: 18px;
-    }
+    .logo { font-size: 18px; }
 
     .nav-cta {
       padding: 8px 16px;
@@ -953,18 +813,7 @@
     }
 
     .hero {
-      min-height: auto;
-      padding: 120px 4vw 40px;
-    }
-
-    .hero h1 {
-      font-size: clamp(32px, 5vw, 48px);
-      margin-bottom: 20px;
-    }
-
-    .hero p.lead {
-      font-size: 14px;
-      margin-bottom: 24px;
+      padding: 100px 4vw 40px;
     }
 
     .hero-actions {
@@ -974,248 +823,67 @@
 
     .btn-primary, .btn-secondary {
       width: 100%;
-      padding: 14px 24px;
+      padding: 14px 20px;
       font-size: 14px;
     }
 
-    .hero-stats {
-      flex-direction: column;
-      gap: 16px;
-      margin-top: 32px;
-      padding-top: 24px;
-    }
+    .badge { font-size: 10px; padding: 5px 10px; }
 
-    .stat-num {
-      font-size: 28px;
-    }
+    section { padding: 60px 4vw; }
 
-    .stat-label {
-      font-size: 11px;
-    }
+    .section-inner { padding: 0 16px; }
 
-    .badge {
-      font-size: 10px;
-      padding: 5px 10px;
-      margin-bottom: 16px;
-    }
+    .brand-grid { grid-template-columns: 1fr; }
 
-    section {
-      padding: 60px 4vw;
-    }
+    .functions-grid { grid-template-columns: 1fr; }
 
-    .section-title {
-      font-size: clamp(28px, 4vw, 40px);
-      margin-bottom: 16px;
-    }
+    .workflow-steps { grid-template-columns: 1fr; }
 
-    .section-lead {
-      font-size: 15px;
-      margin-bottom: 40px;
-    }
+    .pricing-grid { grid-template-columns: 1fr; }
 
-    .brand-grid {
-      grid-template-columns: 1fr;
-      gap: 24px;
-      margin-top: 40px;
-    }
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
 
-    .brand-card {
-      padding: 24px;
-    }
-
-    .brand-card h3 {
-      font-size: 20px;
-    }
-
-    .product-showcase {
-      gap: 24px;
-      margin-top: 40px;
-    }
-
-    .product-info h3 {
-      font-size: 28px;
-      margin-bottom: 8px;
-    }
-
-    .product-info p {
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-
-    .spec-list li {
-      padding: 12px 0;
-      font-size: 13px;
-    }
-
-    .functions-grid {
-      grid-template-columns: 1fr;
-      gap: 16px;
-      margin-top: 40px;
-    }
-
-    .fn-card {
-      padding: 28px 20px;
-    }
-
-    .fn-card h3 {
-      font-size: 22px;
-      margin-bottom: 12px;
-    }
-
-    .fn-card p {
-      font-size: 14px;
-    }
-
-    .workflow-steps {
-      grid-template-columns: 1fr;
-      gap: 16px;
-      margin-top: 40px;
-    }
-
-    .step-num {
-      width: 56px;
-      height: 56px;
-      font-size: 20px;
-      margin-bottom: 16px;
-    }
-
-    .step h4 {
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
-
-    .step p {
-      font-size: 13px;
-    }
-
-    .pricing-grid {
-      gap: 16px;
-      margin-top: 40px;
-    }
-
-    .price-card {
-      padding: 32px 24px;
-    }
-
-    .price-value {
-      font-size: 44px;
-    }
-
-    .price-title {
-      font-size: 24px;
-      margin-bottom: 16px;
-    }
-
-    .price-features li {
-      font-size: 14px;
-      padding: 8px 0;
-    }
-
-    .price-cta {
-      padding: 14px;
-      font-size: 14px;
-    }
-
-    footer {
-      padding: 60px 4vw 24px;
-    }
-
-    .footer-top {
-      grid-template-columns: 1fr;
-      gap: 32px;
-      padding-bottom: 32px;
-    }
-
-    .footer-bottom {
-      flex-direction: column;
-      gap: 12px;
-      text-align: center;
-    }
-
-    .footer-col h5 {
-      font-size: 11px;
-      margin-bottom: 12px;
-    }
-
-    .footer-col ul li {
-      margin-bottom: 8px;
-    }
-
-    .footer-col a {
-      font-size: 13px;
-    }
+    .footer-bottom { flex-direction: column; text-align: center; }
   }
 
   /* ---------- RESPONSIVE - SMALL MOBILE (480px and below) ---------- */
   @media (max-width: 480px) {
     nav {
-      flex-direction: column;
-      gap: 12px;
-      padding: 12px 4vw;
+      padding: 12px 3vw;
+      gap: 8px;
     }
 
-    .logo {
-      font-size: 16px;
-    }
+    .logo { font-size: 16px; }
 
-    .nav-cta {
+    .nav-cta { 
       width: 100%;
-      text-align: center;
       padding: 10px 12px;
+      font-size: 11px;
     }
 
-    .hero {
-      padding: 100px 4vw 30px;
-    }
+    .hero { padding: 90px 3vw 30px; }
 
-    .hero h1 {
-      font-size: clamp(24px, 5vw, 40px);
-      line-height: 1.1;
-    }
+    .hero h1 { margin-bottom: 16px; }
 
-    .hero p.lead {
-      font-size: 13px;
-      max-width: 100%;
-    }
+    .hero p.lead { margin-bottom: 20px; }
 
     .btn-primary, .btn-secondary {
-      padding: 12px 20px;
-      font-size: 12px;
+      padding: 12px 18px;
+      font-size: 13px;
       gap: 6px;
     }
 
-    .stat-num {
-      font-size: 24px;
-    }
+    section { padding: 48px 3vw; }
 
-    .badge {
-      font-size: 9px;
-      padding: 4px 8px;
-    }
+    .section-inner { padding: 0 12px; }
 
-    section {
-      padding: 48px 4vw;
-    }
+    .brand-card { padding: 20px; }
 
-    .section-title {
-      font-size: clamp(24px, 3.5vw, 32px);
-    }
+    .fn-card { padding: 24px 16px; }
 
-    .brand-card {
-      padding: 20px;
-    }
+    .price-card { padding: 32px 20px; }
 
-    .product-info h3 {
-      font-size: 24px;
-    }
-
-    .fn-card {
-      padding: 24px 16px;
-    }
-
-    .price-value {
-      font-size: 36px;
-    }
+    .footer-bottom { font-size: 11px; }
   }
 </style>
 </head>
@@ -1253,12 +921,8 @@
         KUBIX KX-1 réunit le fraisage, le sciage et le tournage dans un seul distributeur compact et 100% automatisé. Importez votre plan CATIA, la pièce sort usinée.
       </p>
       <div class="hero-actions">
-        <a href="#tarifs" class="btn-primary">
-          Découvrir les tarifs →
-        </a>
-        <a href="#produit" class="btn-secondary">
-          Voir la machine
-        </a>
+        <a href="#tarifs" class="btn-primary">Découvrir les tarifs →</a>
+        <a href="#produit" class="btn-secondary">Voir la machine</a>
       </div>
       <div class="hero-stats">
         <div>
@@ -1276,51 +940,192 @@
       </div>
     </div>
 
-    <!-- MACHINE SVG ILLUSTRATION -->
     <div class="machine-vis">
       <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-        <!-- Base -->
         <rect x="40" y="380" width="420" height="50" fill="#0a1733" rx="2"/>
         <rect x="40" y="430" width="420" height="20" fill="#050d1f" rx="2"/>
-        <!-- Feet -->
         <rect x="55" y="450" width="40" height="15" fill="#1a2233"/>
         <rect x="405" y="450" width="40" height="15" fill="#1a2233"/>
-
-        <!-- Main body left/right white -->
         <rect x="55" y="220" width="100" height="160" fill="#ffffff" stroke="#c8d1de" stroke-width="1"/>
         <rect x="345" y="220" width="115" height="160" fill="#ffffff" stroke="#c8d1de" stroke-width="1"/>
-
-        <!-- Center spindle tower blue -->
         <rect x="170" y="180" width="160" height="200" fill="#1e56e0" rx="4"/>
-
-        <!-- Top section darker blue -->
         <rect x="170" y="140" width="160" height="40" fill="#0a1733" rx="4"/>
         <circle cx="250" cy="160" r="12" fill="#2f6cff"/>
-
-        <!-- Tool magazine left side -->
-        <circle cx="95" cy="250" r="16" fill="#c8d1de"/>
-        <circle cx="95" cy="210" r="12" fill="#6b7a8f"/>
-        <circle cx="95" cy="290" r="12" fill="#6b7a8f"/>
-
-        <!-- Output tray right side -->
-        <rect x="405" y="280" width="60" height="80" fill="#f7f9fc" stroke="#c8d1de" stroke-width="1" rx="2"/>
-        <line x1="410" y1="310" x2="460" y2="310" stroke="#c8d1de" stroke-width="1"/>
-        <line x1="410" y1="340" x2="460" y2="340" stroke="#c8d1de" stroke-width="1"/>
-
-        <!-- Control panel elements on center tower -->
-        <rect x="190" y="260" width="120" height="80" fill="#050d1f" rx="2" opacity="0.3"/>
-        <rect x="210" y="275" width="20" height="12" fill="#2f6cff"/>
-        <rect x="240" y="275" width="20" height="12" fill="#2f6cff"/>
-        <rect x="270" y="275" width="20" height="12" fill="#2f6cff"/>
-
-        <!-- Status lights -->
-        <circle cx="215" cy="310" r="4" fill="#2f6cff" opacity="0.8"/>
-        <circle cx="245" cy="310" r="4" fill="#b9ceff" opacity="0.6"/>
-        <circle cx="275" cy="310" r="4" fill="#5b8cff" opacity="0.7"/>
       </svg>
     </div>
   </div>
 </section>
+
+<!-- BRAND SECTION -->
+<section class="brand">
+  <div class="section-inner">
+    <div class="section-tag">NOTRE MARQUE</div>
+    <h2 class="section-title">Engineered for perfection</h2>
+    <p class="section-lead">Découvrez comment KUBIX combine innovation, précision et automatisation.</p>
+    <div class="brand-grid">
+      <div class="brand-card">
+        <h3>Précision</h3>
+        <p>Tolérance de ±0.01mm sur toutes les opérations pour une qualité sans compromis.</p>
+      </div>
+      <div class="brand-card">
+        <h3>Autonomie</h3>
+        <p>100% automatisée. Chargez votre plan, la machine s'occupe du reste sans intervention.</p>
+      </div>
+      <div class="brand-card">
+        <h3>Performance</h3>
+        <p>3 opérations en une. Fraisage, sciage et tournage dans un même espace compact.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT SECTION -->
+<section class="product" id="produit">
+  <div class="section-inner">
+    <div class="section-tag">LE PRODUIT</div>
+    <h2 class="section-title">KUBIX KX-1</h2>
+    <div class="product-showcase">
+      <div class="product-info">
+        <h3>Spécifications</h3>
+        <p>La machine tout-en-un pour petits et moyens ateliers.</p>
+        <ul class="spec-list">
+          <li><span class="spec-key">Capacité</span><span class="spec-val">1500mm³</span></li>
+          <li><span class="spec-key">Vitesse</span><span class="spec-val">Jusqu'à 12,000 rpm</span></li>
+          <li><span class="spec-key">Précision</span><span class="spec-val">±0.01mm</span></li>
+          <li><span class="spec-key">Encombrement</span><span class="spec-val">1.5 m³</span></li>
+        </ul>
+      </div>
+      <div class="product-visual"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FUNCTIONS SECTION -->
+<section class="functions" id="fonctions">
+  <div class="section-inner">
+    <div class="section-tag">FONCTIONNALITÉS</div>
+    <h2 class="section-title">Trois opérations, un espace</h2>
+    <div class="functions-grid">
+      <div class="fn-card">
+        <h3>Fraisage</h3>
+        <p>Fraisage haute précision avec 5 axes de contrôle pour des géométries complexes.</p>
+      </div>
+      <div class="fn-card">
+        <h3>Sciage</h3>
+        <p>Découpe nette et précise sans création de chaleur grâce à la technologie de refroidissement intégrée.</p>
+      </div>
+      <div class="fn-card">
+        <h3>Tournage</h3>
+        <p>Tournage automatisé avec changement d'outils rapide pour une productivité maximale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKFLOW SECTION -->
+<section class="workflow" id="workflow">
+  <div class="section-inner">
+    <div class="section-tag">PROCESSUS</div>
+    <h2 class="section-title">Comment ça marche</h2>
+    <div class="workflow-steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h4>Importez</h4>
+        <p>Chargez votre fichier CATIA, STL ou STEP</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h4>Configurez</h4>
+        <p>Sélectionnez les opérations à effectuer</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h4>Lancez</h4>
+        <p>La machine s'occupe de tout automatiquement</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h4>Récupérez</h4>
+        <p>Récupérez votre pièce usinée et parfaite</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING SECTION -->
+<section class="pricing" id="tarifs">
+  <div class="section-inner">
+    <div class="section-tag">TARIFS</div>
+    <h2 class="section-title">Investissez dans la précision</h2>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3 class="price-title">Starter</h3>
+        <div class="price-value">149K€</div>
+        <p style="color: #b9ceff; margin: 20px 0 24px;">Configuration de base</p>
+        <ul class="price-features">
+          <li>Fraisage et tournage</li>
+          <li>Contrôle automatisé</li>
+          <li>Support technique 1 an</li>
+          <li>Formation incluse</li>
+        </ul>
+        <button class="price-cta">Demander un devis</button>
+      </div>
+      <div class="price-card featured">
+        <h3 class="price-title">Pro</h3>
+        <div class="price-value">249K€</div>
+        <p style="color: rgba(255,255,255,0.9); margin: 20px 0 24px;">Configuration complète</p>
+        <ul class="price-features">
+          <li>Tous les outils (fraisage, sciage, tournage)</li>
+          <li>5 axes de contrôle</li>
+          <li>Support technique 3 ans</li>
+          <li>Formations avancées incluses</li>
+          <li>Garantie pièces</li>
+        </ul>
+        <button class="price-cta">Demander un devis</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div style="font-weight: 700; font-size: 18px;">KUBIX</div>
+        <p>Révolutionner l'usinage pour les PME et TPE avec une technologie accessible et performante.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Produit</h5>
+        <ul>
+          <li><a href="#produit">À propos</a></li>
+          <li><a href="#fonctions">Spécifications</a></li>
+          <li><a href="#tarifs">Tarifs</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Entreprise</h5>
+        <ul>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Carrières</a></li>
+          <li><a href="#">Presse</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Légal</h5>
+        <ul>
+          <li><a href="#">Confidentialité</a></li>
+          <li><a href="#">Conditions</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 KUBIX. Tous droits réservés.</span>
+      <span>Fait avec ❤️ pour les makers</span>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
