@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
@@ -54,11 +54,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255,255,255,0.95);
+    background: rgba(255,255,255,0.85);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--grey-100);
-    width: 100%;
-    max-width: 100%;
   }
 
   .logo {
@@ -70,7 +68,6 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    flex-shrink: 0;
   }
 
   .logo-mark {
@@ -98,8 +95,6 @@
     display: flex;
     gap: 36px;
     list-style: none;
-    flex: 1;
-    justify-content: center;
   }
 
   nav ul a {
@@ -121,7 +116,6 @@
     font-weight: 600;
     text-decoration: none;
     transition: background 0.2s;
-    flex-shrink: 0;
   }
 
   .nav-cta:hover { background: var(--blue-600); }
@@ -133,8 +127,6 @@
     background: var(--off-white);
     position: relative;
     overflow: hidden;
-    width: 100%;
-    max-width: 100%;
   }
 
   .hero-grid {
@@ -146,7 +138,6 @@
     background-size: 80px 80px;
     mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
     opacity: 0.6;
-    pointer-events: none;
   }
 
   .hero-content {
@@ -157,7 +148,6 @@
     grid-template-columns: 1.1fr 1fr;
     gap: 60px;
     align-items: center;
-    width: 100%;
   }
 
   .badge {
@@ -221,7 +211,7 @@
   }
 
   .hero p.lead {
-    font-size: clamp(16px, 2vw, 19px);
+    font-size: 19px;
     color: var(--grey-700);
     margin-bottom: 40px;
     max-width: 540px;
@@ -234,7 +224,9 @@
     flex-wrap: wrap;
   }
 
-  .btn-primary, .btn-secondary {
+  .btn-primary {
+    background: var(--navy-900);
+    color: var(--white);
     padding: 16px 32px;
     border-radius: 100px;
     font-size: 15px;
@@ -246,12 +238,6 @@
     transition: all 0.2s;
     border: none;
     cursor: pointer;
-    white-space: nowrap;
-  }
-
-  .btn-primary {
-    background: var(--navy-900);
-    color: var(--white);
   }
 
   .btn-primary:hover {
@@ -262,7 +248,16 @@
   .btn-secondary {
     background: transparent;
     color: var(--navy-900);
+    padding: 16px 32px;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
     border: 1.5px solid var(--navy-900);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s;
   }
 
   .btn-secondary:hover {
@@ -276,12 +271,11 @@
     margin-top: 64px;
     padding-top: 40px;
     border-top: 1px solid var(--grey-300);
-    flex-wrap: wrap;
   }
 
   .stat-num {
     font-family: var(--display);
-    font-size: clamp(28px, 4vw, 36px);
+    font-size: 36px;
     font-weight: 700;
     color: var(--navy-900);
     letter-spacing: -0.02em;
@@ -342,14 +336,11 @@
   /* ---------- SECTION GENERIC ---------- */
   section {
     padding: 120px 5vw;
-    width: 100%;
-    max-width: 100%;
   }
 
   .section-inner {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 20px;
   }
 
   .section-tag {
@@ -383,7 +374,7 @@
   }
 
   .section-lead {
-    font-size: clamp(16px, 2vw, 18px);
+    font-size: 18px;
     color: var(--grey-700);
     max-width: 680px;
     margin-bottom: 64px;
@@ -405,7 +396,7 @@
 
   .brand-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px;
     margin-top: 80px;
   }
@@ -423,9 +414,16 @@
     transform: translateY(-4px);
   }
 
+  .brand-num {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--blue-400);
+    margin-bottom: 16px;
+  }
+
   .brand-card h3 {
     font-family: var(--display);
-    font-size: clamp(20px, 3vw, 24px);
+    font-size: 24px;
     font-weight: 600;
     margin-bottom: 12px;
     letter-spacing: -0.02em;
@@ -437,6 +435,24 @@
     line-height: 1.6;
   }
 
+  .brand-decor {
+    position: absolute;
+    bottom: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    border: 1px solid var(--navy-700);
+    border-radius: 50%;
+  }
+
+  .brand-decor::before {
+    content: '';
+    position: absolute;
+    inset: 60px;
+    border: 1px solid var(--navy-700);
+    border-radius: 50%;
+  }
+
   /* ---------- PRODUCT SECTION ---------- */
   .product {
     background: var(--off-white);
@@ -445,22 +461,31 @@
   .product-showcase {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
-    gap: clamp(40px, 5vw, 80px);
+    gap: 80px;
     align-items: center;
     margin-top: 60px;
   }
 
   .product-info h3 {
     font-family: var(--display);
-    font-size: clamp(32px, 5vw, 48px);
+    font-size: 48px;
     font-weight: 700;
     letter-spacing: -0.03em;
     margin-bottom: 8px;
     color: var(--navy-950);
   }
 
+  .product-info .ref {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--grey-500);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 32px;
+  }
+
   .product-info p {
-    font-size: clamp(14px, 1.5vw, 16px);
+    font-size: 16px;
     color: var(--grey-700);
     margin-bottom: 32px;
   }
@@ -477,8 +502,6 @@
     padding: 18px 0;
     border-bottom: 1px solid var(--grey-300);
     font-size: 14px;
-    flex-wrap: wrap;
-    gap: 16px;
   }
 
   .spec-list .spec-key {
@@ -493,7 +516,7 @@
     color: var(--navy-900);
     font-weight: 600;
     font-family: var(--display);
-    font-size: clamp(14px, 1.5vw, 16px);
+    font-size: 16px;
   }
 
   .product-visual {
@@ -509,6 +532,17 @@
     justify-content: center;
   }
 
+  .product-corner {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--blue-600);
+  }
+  .corner-tl { top: 16px; left: 16px; border-right: none; border-bottom: none; }
+  .corner-tr { top: 16px; right: 16px; border-left: none; border-bottom: none; }
+  .corner-bl { bottom: 16px; left: 16px; border-right: none; border-top: none; }
+  .corner-br { bottom: 16px; right: 16px; border-left: none; border-top: none; }
+
   /* ---------- 3 FUNCTIONS ---------- */
   .functions {
     background: var(--white);
@@ -516,7 +550,7 @@
 
   .functions-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     margin-top: 60px;
   }
@@ -540,10 +574,43 @@
   .fn-card:hover .fn-num,
   .fn-card:hover h3 { color: var(--white); }
   .fn-card:hover p { color: var(--blue-200); }
+  .fn-card:hover .fn-icon { border-color: var(--blue-400); }
+  .fn-card:hover .fn-icon svg { stroke: var(--blue-400); }
+
+  .fn-icon {
+    width: 64px;
+    height: 64px;
+    border: 1.5px solid var(--navy-900);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 32px;
+    transition: all 0.3s;
+  }
+
+  .fn-icon svg {
+    width: 32px;
+    height: 32px;
+    stroke: var(--navy-900);
+    fill: none;
+    stroke-width: 1.5;
+    transition: all 0.3s;
+  }
+
+  .fn-num {
+    position: absolute;
+    top: 24px;
+    right: 28px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--grey-500);
+    transition: color 0.3s;
+  }
 
   .fn-card h3 {
     font-family: var(--display);
-    font-size: clamp(22px, 3vw, 28px);
+    font-size: 28px;
     font-weight: 600;
     letter-spacing: -0.02em;
     margin-bottom: 16px;
@@ -565,7 +632,7 @@
 
   .workflow-steps {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 24px;
     margin-top: 60px;
     position: relative;
@@ -605,7 +672,7 @@
 
   .step h4 {
     font-family: var(--display);
-    font-size: clamp(18px, 2.5vw, 20px);
+    font-size: 20px;
     font-weight: 600;
     letter-spacing: -0.02em;
     margin-bottom: 10px;
@@ -633,7 +700,7 @@
 
   .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
     margin-top: 60px;
   }
@@ -657,20 +724,68 @@
     transform: translateY(-6px);
   }
 
+  .price-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--blue-400);
+    margin-bottom: 12px;
+  }
+
+  .price-card.featured .price-label {
+    color: rgba(255,255,255,0.8);
+  }
+
   .price-title {
     font-family: var(--display);
-    font-size: clamp(24px, 3vw, 32px);
+    font-size: 32px;
     font-weight: 700;
     letter-spacing: -0.02em;
     margin-bottom: 24px;
   }
 
+  .price-amount {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
   .price-value {
     font-family: var(--display);
-    font-size: clamp(40px, 6vw, 56px);
+    font-size: 56px;
     font-weight: 800;
     letter-spacing: -0.04em;
     line-height: 1;
+  }
+
+  .price-period {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--blue-200);
+  }
+
+  .price-card.featured .price-period {
+    color: rgba(255,255,255,0.9);
+  }
+
+  .price-desc {
+    color: var(--blue-200);
+    font-size: 15px;
+    margin: 24px 0 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--navy-700);
+  }
+
+  .price-card.featured .price-desc {
+    color: rgba(255,255,255,0.9);
+    border-bottom-color: rgba(255,255,255,0.2);
+  }
+
+  .price-features {
+    list-style: none;
+    margin-bottom: 32px;
   }
 
   .price-features li {
@@ -678,8 +793,23 @@
     align-items: flex-start;
     gap: 12px;
     padding: 10px 0;
-    font-size: clamp(13px, 1.5vw, 15px);
+    font-size: 15px;
     color: var(--blue-100);
+  }
+
+  .price-card.featured .price-features li {
+    color: var(--white);
+  }
+
+  .price-features li::before {
+    content: '→';
+    color: var(--blue-400);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .price-card.featured .price-features li::before {
+    color: var(--white);
   }
 
   .price-cta {
@@ -696,7 +826,6 @@
     transition: all 0.2s;
     border: none;
     cursor: pointer;
-    margin-top: 24px;
   }
 
   .price-card.featured .price-cta {
@@ -707,6 +836,14 @@
   .price-cta:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+
+  .pricing-note {
+    text-align: center;
+    margin-top: 40px;
+    color: var(--blue-200);
+    font-size: 13px;
+    font-family: var(--mono);
   }
 
   /* ---------- FOOTER ---------- */
@@ -723,10 +860,18 @@
 
   .footer-top {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: clamp(40px, 5vw, 60px);
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 60px;
     padding-bottom: 60px;
     border-bottom: 1px solid var(--grey-100);
+  }
+
+  .footer-brand p {
+    color: var(--grey-700);
+    font-size: 14px;
+    margin-top: 20px;
+    line-height: 1.6;
+    max-width: 320px;
   }
 
   .footer-col h5 {
@@ -738,13 +883,18 @@
     margin-bottom: 20px;
   }
 
-  .footer-col ul { list-style: none; }
-  .footer-col ul li { margin-bottom: 12px; }
+  .footer-col ul {
+    list-style: none;
+  }
+
+  .footer-col ul li {
+    margin-bottom: 12px;
+  }
 
   .footer-col a {
     color: var(--navy-900);
     text-decoration: none;
-    font-size: clamp(13px, 1.5vw, 14px);
+    font-size: 14px;
     transition: color 0.2s;
   }
 
@@ -758,132 +908,22 @@
     font-size: 13px;
     color: var(--grey-500);
     font-family: var(--mono);
-    flex-wrap: wrap;
-    gap: 16px;
   }
 
-  /* ---------- RESPONSIVE - TABLET (1200px and below) ---------- */
-  @media (max-width: 1200px) {
-    .hero-content { gap: 40px; }
-    section { padding: 100px 5vw; }
-    .product-showcase { grid-template-columns: 1fr; }
-  }
-
-  /* ---------- RESPONSIVE - TABLET (900px and below) ---------- */
+  /* ---------- RESPONSIVE ---------- */
   @media (max-width: 900px) {
     nav ul { display: none; }
-    
-    .hero {
-      min-height: auto;
-      padding: 120px 5vw 60px;
-    }
-
-    .hero-content { 
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-    
-    .hero-stats { flex-direction: column; gap: 20px; }
-    
-    .brand-grid { grid-template-columns: repeat(2, 1fr); }
-    
-    .functions-grid { grid-template-columns: repeat(2, 1fr); }
-    
-    .workflow-steps { grid-template-columns: repeat(2, 1fr); }
-    .workflow-line { display: none; }
-    
-    .pricing-grid { grid-template-columns: 1fr; }
-    
-    .machine-label { display: none; }
-    
-    section { padding: 80px 5vw; }
-  }
-
-  /* ---------- RESPONSIVE - MOBILE (768px and below) ---------- */
-  @media (max-width: 768px) {
-    nav {
-      padding: 14px 4vw;
-    }
-
-    .logo { font-size: 18px; }
-
-    .nav-cta {
-      padding: 8px 16px;
-      font-size: 12px;
-    }
-
-    .hero {
-      padding: 100px 4vw 40px;
-    }
-
-    .hero-actions {
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .btn-primary, .btn-secondary {
-      width: 100%;
-      padding: 14px 20px;
-      font-size: 14px;
-    }
-
-    .badge { font-size: 10px; padding: 5px 10px; }
-
-    section { padding: 60px 4vw; }
-
-    .section-inner { padding: 0 16px; }
-
+    .hero-content { grid-template-columns: 1fr; }
+    .hero-stats { flex-wrap: wrap; gap: 24px; }
     .brand-grid { grid-template-columns: 1fr; }
-
+    .product-showcase { grid-template-columns: 1fr; gap: 40px; }
     .functions-grid { grid-template-columns: 1fr; }
-
     .workflow-steps { grid-template-columns: 1fr; }
-
+    .workflow-line { display: none; }
     .pricing-grid { grid-template-columns: 1fr; }
-
-    .footer-top { grid-template-columns: 1fr; gap: 32px; }
-
-    .footer-bottom { flex-direction: column; text-align: center; }
-  }
-
-  /* ---------- RESPONSIVE - SMALL MOBILE (480px and below) ---------- */
-  @media (max-width: 480px) {
-    nav {
-      padding: 12px 3vw;
-      gap: 8px;
-    }
-
-    .logo { font-size: 16px; }
-
-    .nav-cta { 
-      width: 100%;
-      padding: 10px 12px;
-      font-size: 11px;
-    }
-
-    .hero { padding: 90px 3vw 30px; }
-
-    .hero h1 { margin-bottom: 16px; }
-
-    .hero p.lead { margin-bottom: 20px; }
-
-    .btn-primary, .btn-secondary {
-      padding: 12px 18px;
-      font-size: 13px;
-      gap: 6px;
-    }
-
-    section { padding: 48px 3vw; }
-
-    .section-inner { padding: 0 12px; }
-
-    .brand-card { padding: 20px; }
-
-    .fn-card { padding: 24px 16px; }
-
-    .price-card { padding: 32px 20px; }
-
-    .footer-bottom { font-size: 11px; }
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .machine-label { display: none; }
+    section { padding: 80px 5vw; }
   }
 </style>
 </head>
@@ -921,8 +961,12 @@
         KUBIX KX-1 réunit le fraisage, le sciage et le tournage dans un seul distributeur compact et 100% automatisé. Importez votre plan CATIA, la pièce sort usinée.
       </p>
       <div class="hero-actions">
-        <a href="#tarifs" class="btn-primary">Découvrir les tarifs →</a>
-        <a href="#produit" class="btn-secondary">Voir la machine</a>
+        <a href="#tarifs" class="btn-primary">
+          Découvrir les tarifs →
+        </a>
+        <a href="#produit" class="btn-secondary">
+          Voir la machine
+        </a>
       </div>
       <div class="hero-stats">
         <div>
@@ -940,189 +984,366 @@
       </div>
     </div>
 
+    <!-- MACHINE SVG ILLUSTRATION -->
     <div class="machine-vis">
       <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+        <!-- Base -->
         <rect x="40" y="380" width="420" height="50" fill="#0a1733" rx="2"/>
         <rect x="40" y="430" width="420" height="20" fill="#050d1f" rx="2"/>
+        <!-- Feet -->
         <rect x="55" y="450" width="40" height="15" fill="#1a2233"/>
         <rect x="405" y="450" width="40" height="15" fill="#1a2233"/>
+
+        <!-- Main body left/right white -->
         <rect x="55" y="220" width="100" height="160" fill="#ffffff" stroke="#c8d1de" stroke-width="1"/>
         <rect x="345" y="220" width="115" height="160" fill="#ffffff" stroke="#c8d1de" stroke-width="1"/>
-        <rect x="170" y="180" width="160" height="200" fill="#1e56e0" rx="4"/>
-        <rect x="170" y="140" width="160" height="40" fill="#0a1733" rx="4"/>
-        <circle cx="250" cy="160" r="12" fill="#2f6cff"/>
+
+        <!-- Center dark frame -->
+        <rect x="155" y="200" width="190" height="180" fill="#1a2233"/>
+
+        <!-- Glass doors -->
+        <rect x="170" y="240" width="75" height="120" fill="#5b8cff" fill-opacity="0.15" stroke="#364152" stroke-width="1.5"/>
+        <rect x="255" y="240" width="75" height="120" fill="#5b8cff" fill-opacity="0.15" stroke="#364152" stroke-width="1.5"/>
+
+        <!-- Door handles -->
+        <line x1="240" y1="260" x2="240" y2="340" stroke="#c8d1de" stroke-width="2"/>
+        <line x1="260" y1="260" x2="260" y2="340" stroke="#c8d1de" stroke-width="2"/>
+
+        <!-- Spindle column (red) -->
+        <rect x="210" y="50" width="80" height="180" fill="#1e56e0"/>
+        <rect x="220" y="60" width="60" height="10" fill="#ffffff" fill-opacity="0.2"/>
+        <!-- Logo on column -->
+        <text x="250" y="140" font-family="JetBrains Mono" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle" transform="rotate(-90 250 140)">TRIAXE</text>
+
+        <!-- Top housing -->
+        <rect x="155" y="170" width="190" height="35" fill="#0a1733"/>
+        <rect x="155" y="170" width="190" height="8" fill="#050d1f"/>
+
+        <!-- Side vent left -->
+        <rect x="65" y="240" width="80" height="120" fill="none" stroke="#c8d1de" stroke-width="0.5"/>
+        <text x="95" y="310" font-family="Bricolage Grotesque" font-size="36" font-weight="800" fill="#2f6cff" text-anchor="middle" transform="rotate(-90 95 310)">BM-1</text>
+
+        <!-- Right window -->
+        <rect x="370" y="240" width="70" height="120" fill="#5b8cff" fill-opacity="0.15" stroke="#c8d1de" stroke-width="1"/>
+
+        <!-- Control panel -->
+        <rect x="335" y="240" width="65" height="90" fill="#1a2233" rx="3"/>
+        <rect x="342" y="248" width="50" height="32" fill="#2f6cff" fill-opacity="0.3" stroke="#5b8cff" stroke-width="0.5"/>
+        <!-- Screen lines -->
+        <line x1="346" y1="256" x2="378" y2="256" stroke="#b9ceff" stroke-width="0.5"/>
+        <line x1="346" y1="262" x2="372" y2="262" stroke="#b9ceff" stroke-width="0.5"/>
+        <line x1="346" y1="268" x2="380" y2="268" stroke="#b9ceff" stroke-width="0.5"/>
+        <line x1="346" y1="274" x2="368" y2="274" stroke="#b9ceff" stroke-width="0.5"/>
+        <!-- Buttons -->
+        <circle cx="350" cy="292" r="3" fill="#ef4444"/>
+        <circle cx="362" cy="292" r="3" fill="#22c55e"/>
+        <circle cx="374" cy="292" r="3" fill="#facc15"/>
+        <circle cx="386" cy="292" r="3" fill="#5b8cff"/>
+        <rect x="345" y="302" width="45" height="20" fill="#050d1f" stroke="#364152" stroke-width="0.3"/>
+        <line x1="350" y1="308" x2="385" y2="308" stroke="#6b7a8f" stroke-width="0.3"/>
+        <line x1="350" y1="313" x2="385" y2="313" stroke="#6b7a8f" stroke-width="0.3"/>
+        <line x1="350" y1="318" x2="385" y2="318" stroke="#6b7a8f" stroke-width="0.3"/>
+
+        <!-- Inside workspace -->
+        <rect x="180" y="295" width="120" height="50" fill="#050d1f"/>
+        <circle cx="240" cy="320" r="8" fill="#5b8cff" fill-opacity="0.3"/>
+        <rect x="235" y="313" width="10" height="6" fill="#c8d1de"/>
+
+        <!-- Coordinate dimensions -->
+        <line x1="40" y1="475" x2="460" y2="475" stroke="#6b7a8f" stroke-width="0.5" stroke-dasharray="3,3"/>
+        <text x="250" y="490" font-family="JetBrains Mono" font-size="9" fill="#6b7a8f" text-anchor="middle">1500 mm</text>
       </svg>
+
+      <div class="machine-label label-1">CN multi-axes</div>
+      <div class="machine-label label-2">Bras robotisé intégré</div>
+      <div class="machine-label label-3">Écran tactile · CATIA</div>
     </div>
   </div>
 </section>
 
-<!-- BRAND SECTION -->
-<section class="brand">
+<!-- BRAND -->
+<section class="brand" id="marque">
+  <div class="brand-decor"></div>
   <div class="section-inner">
-    <div class="section-tag">NOTRE MARQUE</div>
-    <h2 class="section-title">Engineered for perfection</h2>
-    <p class="section-lead">Découvrez comment KUBIX combine innovation, précision et automatisation.</p>
+    <div class="section-tag">À propos de TRIAXE</div>
+    <h2 class="section-title">L'usinage de précision, démocratisé.</h2>
+    <p class="section-lead">
+      Né en 2024 à Bordeaux, TRIAXE est une jeune entreprise française qui pense l'industrie autrement : faire entrer une cellule d'usinage complète dans le format d'une borne automatique, pour la rendre accessible aux ateliers, laboratoires de recherche et bureaux d'ingénierie.
+    </p>
+
     <div class="brand-grid">
       <div class="brand-card">
-        <h3>Précision</h3>
-        <p>Tolérance de ±0.01mm sur toutes les opérations pour une qualité sans compromis.</p>
+        <div class="brand-num">01 / Mission</div>
+        <h3>Compacité radicale</h3>
+        <p>Un atelier d'usinage tient dans 1,5 m³. Plus besoin de hall industriel : la machine s'installe partout où il y a une prise électrique adaptée.</p>
       </div>
       <div class="brand-card">
-        <h3>Autonomie</h3>
-        <p>100% automatisée. Chargez votre plan, la machine s'occupe du reste sans intervention.</p>
+        <div class="brand-num">02 / Vision</div>
+        <h3>Zéro intermédiaire</h3>
+        <p>Du plan CATIA à la pièce finie, sans opérateur expérimenté. L'IA convertit votre fichier en gamme d'usinage et la machine exécute.</p>
       </div>
       <div class="brand-card">
-        <h3>Performance</h3>
-        <p>3 opérations en une. Fraisage, sciage et tournage dans un même espace compact.</p>
+        <div class="brand-num">03 / Engagement</div>
+        <h3>Made in France</h3>
+        <p>Conception et assemblage en Nouvelle-Aquitaine. Service après-vente sous 48h, garantie 5 ans pièces et main d'œuvre.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PRODUCT SECTION -->
+<!-- PRODUCT -->
 <section class="product" id="produit">
   <div class="section-inner">
-    <div class="section-tag">LE PRODUIT</div>
-    <h2 class="section-title">KUBIX KX-1</h2>
+    <div class="section-tag">Le produit</div>
+    <h2 class="section-title">TRIAXE BM-1, l'usine en kit.</h2>
+    <p class="section-lead">
+      Pensée pour la production en petite série de pièces de précision — visserie, micro-mécanique, prototypage — la BM-1 réunit dans un châssis monobloc tout ce qui était auparavant disséminé sur trois machines distinctes.
+    </p>
+
     <div class="product-showcase">
       <div class="product-info">
-        <h3>Spécifications</h3>
-        <p>La machine tout-en-un pour petits et moyens ateliers.</p>
+        <h3>BM-1</h3>
+        <div class="ref">RÉF. TRX-BM1-2026</div>
+        <p>
+          Conçue pour usiner principalement l'acier et l'aluminium, la BM-1 produit des pièces jusqu'à 10×10×15 mm avec une tolérance de ±0,01 mm. L'ensemble du processus — chargement du brut, mise en position, usinage, évacuation — est piloté par bras robotisé intégré et mandrins motorisés.
+        </p>
+
         <ul class="spec-list">
-          <li><span class="spec-key">Capacité</span><span class="spec-val">1500mm³</span></li>
-          <li><span class="spec-key">Vitesse</span><span class="spec-val">Jusqu'à 12,000 rpm</span></li>
-          <li><span class="spec-key">Précision</span><span class="spec-val">±0.01mm</span></li>
-          <li><span class="spec-key">Encombrement</span><span class="spec-val">1.5 m³</span></li>
+          <li><span class="spec-key">Encombrement</span><span class="spec-val">1500 × 1000 × 2000 mm</span></li>
+          <li><span class="spec-key">Pièces produites</span><span class="spec-val">jusqu'à 10×10×15 mm</span></li>
+          <li><span class="spec-key">Matériaux</span><span class="spec-val">Acier · Aluminium</span></li>
+          <li><span class="spec-key">Précision</span><span class="spec-val">± 0,01 mm</span></li>
+          <li><span class="spec-key">Format plan</span><span class="spec-val">CATIA V5 / V6 · STEP</span></li>
+          <li><span class="spec-key">Cadence</span><span class="spec-val">Jusqu'à 120 pièces/h</span></li>
+          <li><span class="spec-key">Garantie</span><span class="spec-val">5 ans</span></li>
         </ul>
       </div>
-      <div class="product-visual"></div>
+
+      <div class="product-visual">
+        <span class="product-corner corner-tl"></span>
+        <span class="product-corner corner-tr"></span>
+        <span class="product-corner corner-bl"></span>
+        <span class="product-corner corner-br"></span>
+
+        <svg viewBox="0 0 400 400" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <!-- Base -->
+          <rect x="30" y="300" width="340" height="40" fill="#0a1733"/>
+          <rect x="30" y="340" width="340" height="14" fill="#050d1f"/>
+          <rect x="45" y="354" width="30" height="10" fill="#1a2233"/>
+          <rect x="325" y="354" width="30" height="10" fill="#1a2233"/>
+
+          <!-- Left/right white panels -->
+          <rect x="45" y="170" width="80" height="130" fill="#ffffff" stroke="#c8d1de" stroke-width="1"/>
+          <rect x="275" y="170" width="95" height="130" fill="#ffffff" stroke="#c8d1de" stroke-width="1"/>
+
+          <!-- Center frame -->
+          <rect x="125" y="155" width="150" height="145" fill="#1a2233"/>
+
+          <!-- Glass -->
+          <rect x="138" y="190" width="60" height="95" fill="#5b8cff" fill-opacity="0.15" stroke="#364152" stroke-width="1.5"/>
+          <rect x="206" y="190" width="60" height="95" fill="#5b8cff" fill-opacity="0.15" stroke="#364152" stroke-width="1.5"/>
+
+          <!-- Spindle column blue -->
+          <rect x="170" y="40" width="60" height="140" fill="#1e56e0"/>
+          <text x="200" y="115" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle" transform="rotate(-90 200 115)">TRIAXE</text>
+
+          <!-- Top housing -->
+          <rect x="125" y="130" width="150" height="28" fill="#0a1733"/>
+
+          <!-- Side vent left BM-1 label -->
+          <text x="85" y="245" font-family="Bricolage Grotesque" font-size="28" font-weight="800" fill="#2f6cff" text-anchor="middle" transform="rotate(-90 85 245)">BM-1</text>
+
+          <!-- Control panel -->
+          <rect x="266" y="190" width="55" height="78" fill="#1a2233" rx="2"/>
+          <rect x="272" y="196" width="42" height="28" fill="#2f6cff" fill-opacity="0.3" stroke="#5b8cff" stroke-width="0.5"/>
+          <line x1="276" y1="203" x2="306" y2="203" stroke="#b9ceff" stroke-width="0.4"/>
+          <line x1="276" y1="209" x2="300" y2="209" stroke="#b9ceff" stroke-width="0.4"/>
+          <line x1="276" y1="215" x2="308" y2="215" stroke="#b9ceff" stroke-width="0.4"/>
+          <circle cx="279" cy="235" r="2.5" fill="#ef4444"/>
+          <circle cx="289" cy="235" r="2.5" fill="#22c55e"/>
+          <circle cx="299" cy="235" r="2.5" fill="#facc15"/>
+          <circle cx="309" cy="235" r="2.5" fill="#5b8cff"/>
+          <rect x="273" y="245" width="40" height="18" fill="#050d1f"/>
+
+          <!-- Window right -->
+          <rect x="296" y="190" width="60" height="95" fill="#5b8cff" fill-opacity="0.15" stroke="#c8d1de" stroke-width="1"/>
+        </svg>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FUNCTIONS SECTION -->
+<!-- FUNCTIONS -->
 <section class="functions" id="fonctions">
   <div class="section-inner">
-    <div class="section-tag">FONCTIONNALITÉS</div>
-    <h2 class="section-title">Trois opérations, un espace</h2>
+    <div class="section-tag">Trois machines, un seul châssis</div>
+    <h2 class="section-title">Fraisage. Sciage. Tournage.</h2>
+    <p class="section-lead">
+      La BM-1 commute automatiquement entre trois modes d'usinage sans intervention humaine. Le bras robotisé interne change d'outil, repositionne le brut, et lance l'opération suivante.
+    </p>
+
     <div class="functions-grid">
       <div class="fn-card">
+        <span class="fn-num">/ 01</span>
+        <div class="fn-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg>
+        </div>
         <h3>Fraisage</h3>
-        <p>Fraisage haute précision avec 5 axes de contrôle pour des géométries complexes.</p>
+        <p>Fraise multi-axes haute vitesse jusqu'à 24 000 tr/min. Idéal pour les surfaces complexes, perçages et taraudages sur acier comme aluminium.</p>
       </div>
+
       <div class="fn-card">
+        <span class="fn-num">/ 02</span>
+        <div class="fn-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 12h18"/><path d="M5 9l2 3-2 3"/><path d="M9 9l2 3-2 3"/><path d="M13 9l2 3-2 3"/><path d="M17 9l2 3-2 3"/></svg>
+        </div>
         <h3>Sciage</h3>
-        <p>Découpe nette et précise sans création de chaleur grâce à la technologie de refroidissement intégrée.</p>
+        <p>Module de découpe pour barres et profilés. Coupes nettes à ±0,05 mm, refroidissement automatique, évacuation des copeaux par convoyeur intégré.</p>
       </div>
+
       <div class="fn-card">
+        <span class="fn-num">/ 03</span>
+        <div class="fn-icon">
+          <svg viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="9" ry="3"/><path d="M3 12v4c0 1.7 4 3 9 3s9-1.3 9-3v-4"/><path d="M3 12V8c0-1.7 4-3 9-3s9 1.3 9 3v4"/></svg>
+        </div>
         <h3>Tournage</h3>
-        <p>Tournage automatisé avec changement d'outils rapide pour une productivité maximale.</p>
+        <p>Mandrin motorisé jusqu'à 6 000 tr/min, mors auto-centrant, tourelle 8 outils. Production de pièces de révolution en série continue.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WORKFLOW SECTION -->
+<!-- WORKFLOW -->
 <section class="workflow" id="workflow">
   <div class="section-inner">
-    <div class="section-tag">PROCESSUS</div>
-    <h2 class="section-title">Comment ça marche</h2>
+    <div class="section-tag">Comment ça marche</div>
+    <h2 class="section-title">Du plan à la pièce, en quatre étapes.</h2>
+    <p class="section-lead">
+      Aucune compétence d'opérateur CN requise. L'écran tactile guide l'utilisateur, le logiciel embarqué fait le reste.
+    </p>
+
     <div class="workflow-steps">
+      <div class="workflow-line"></div>
       <div class="step">
         <div class="step-num">1</div>
         <h4>Importez</h4>
-        <p>Chargez votre fichier CATIA, STL ou STEP</p>
+        <p>Téléchargez votre plan CATIA V5/V6 ou STEP directement depuis l'écran tactile ou via USB / réseau.</p>
       </div>
       <div class="step">
         <div class="step-num">2</div>
-        <h4>Configurez</h4>
-        <p>Sélectionnez les opérations à effectuer</p>
+        <h4>Validez</h4>
+        <p>Le logiciel embarqué convertit le plan en programme d'usinage et propose une gamme optimisée. Vous confirmez.</p>
       </div>
       <div class="step">
         <div class="step-num">3</div>
-        <h4>Lancez</h4>
-        <p>La machine s'occupe de tout automatiquement</p>
+        <h4>Chargez</h4>
+        <p>Insérez le brut dans le sas. Le bras robotisé prend le relais, met en position et serre dans le mandrin motorisé.</p>
       </div>
       <div class="step">
         <div class="step-num">4</div>
         <h4>Récupérez</h4>
-        <p>Récupérez votre pièce usinée et parfaite</p>
+        <p>La pièce finie sort dans le bac de sortie. Cycle suivant déclenché automatiquement si série programmée.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PRICING SECTION -->
+<!-- PRICING -->
 <section class="pricing" id="tarifs">
   <div class="section-inner">
-    <div class="section-tag">TARIFS</div>
-    <h2 class="section-title">Investissez dans la précision</h2>
+    <div class="section-tag">Tarifs</div>
+    <h2 class="section-title">Achetez-la. Ou louez-la.</h2>
+    <p class="section-lead">
+      Deux modalités d'accès pensées pour s'adapter à votre cycle de production : acquisition pour les ateliers stables, location longue durée pour les projets et bureaux d'étude.
+    </p>
+
     <div class="pricing-grid">
       <div class="price-card">
-        <h3 class="price-title">Starter</h3>
-        <div class="price-value">149K€</div>
-        <p style="color: #b9ceff; margin: 20px 0 24px;">Configuration de base</p>
+        <div class="price-label">Acquisition</div>
+        <div class="price-title">Achat TRIAXE BM-1</div>
+        <div class="price-amount">
+          <span class="price-value">98 789,99 €</span>
+        </div>
+        <span class="price-period">HT · Livraison & installation incluses</span>
+        <p class="price-desc">La machine devient votre actif. Idéal pour une utilisation intensive et un amortissement sur 5 à 7 ans.</p>
         <ul class="price-features">
-          <li>Fraisage et tournage</li>
-          <li>Contrôle automatisé</li>
-          <li>Support technique 1 an</li>
-          <li>Formation incluse</li>
+          <li>Garantie pièces & main d'œuvre 5 ans</li>
+          <li>Installation et formation sur site (2 jours)</li>
+          <li>Mises à jour logicielles à vie</li>
+          <li>Hotline technique 6j/7</li>
+          <li>Pack 50 outils premier équipement offert</li>
         </ul>
-        <button class="price-cta">Demander un devis</button>
+        <a href="#contact" class="price-cta">Acheter la BM-1</a>
       </div>
+
       <div class="price-card featured">
-        <h3 class="price-title">Pro</h3>
-        <div class="price-value">249K€</div>
-        <p style="color: rgba(255,255,255,0.9); margin: 20px 0 24px;">Configuration complète</p>
+        <div class="price-label">Location longue durée</div>
+        <div class="price-title">TRIAXE BM-1 en LOA</div>
+        <div class="price-amount">
+          <span class="price-value">4 987,98 €</span>
+        </div>
+        <span class="price-period">/ mois HT · Engagement 36 mois min.</span>
+        <p class="price-desc">Sans apport, machine récente, maintenance incluse. La formule la plus souple pour démarrer ou tester une nouvelle ligne de production.</p>
         <ul class="price-features">
-          <li>Tous les outils (fraisage, sciage, tournage)</li>
-          <li>5 axes de contrôle</li>
-          <li>Support technique 3 ans</li>
-          <li>Formations avancées incluses</li>
-          <li>Garantie pièces</li>
+          <li>Maintenance préventive & curative incluse</li>
+          <li>Échange standard sous 48h en cas de panne</li>
+          <li>Formation continue des opérateurs</li>
+          <li>Option d'achat à terme (valeur résiduelle 15%)</li>
+          <li>Upgrade vers nouvelle génération possible</li>
         </ul>
-        <button class="price-cta">Demander un devis</button>
+        <a href="#contact" class="price-cta">Louer la BM-1</a>
       </div>
     </div>
+
+    <p class="pricing-note">Tarifs valables jusqu'au 31/12/2026 · Devis personnalisé sur demande pour flotte ≥ 3 unités</p>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer>
+<footer id="contact">
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <div style="font-weight: 700; font-size: 18px;">KUBIX</div>
-        <p>Révolutionner l'usinage pour les PME et TPE avec une technologie accessible et performante.</p>
+        <a href="#" class="logo">
+          <span class="logo-mark"></span>
+          TRIAXE
+        </a>
+        <p>L'atelier d'usinage compact, automatisé, made in France. Bordeaux · Nouvelle-Aquitaine.</p>
       </div>
+
       <div class="footer-col">
         <h5>Produit</h5>
         <ul>
-          <li><a href="#produit">À propos</a></li>
-          <li><a href="#fonctions">Spécifications</a></li>
+          <li><a href="#produit">TRIAXE BM-1</a></li>
+          <li><a href="#fonctions">Fonctions</a></li>
+          <li><a href="#workflow">Fonctionnement</a></li>
           <li><a href="#tarifs">Tarifs</a></li>
         </ul>
       </div>
+
       <div class="footer-col">
-        <h5>Entreprise</h5>
+        <h5>Société</h5>
         <ul>
-          <li><a href="#">Blog</a></li>
+          <li><a href="#marque">À propos</a></li>
           <li><a href="#">Carrières</a></li>
           <li><a href="#">Presse</a></li>
+          <li><a href="#">Partenaires</a></li>
         </ul>
       </div>
+
       <div class="footer-col">
-        <h5>Légal</h5>
+        <h5>Contact</h5>
         <ul>
-          <li><a href="#">Confidentialité</a></li>
-          <li><a href="#">Conditions</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="mailto:contact@triaxe.fr">contact@triaxe.fr</a></li>
+          <li><a href="tel:+33556000000">+33 5 56 00 00 00</a></li>
+          <li><a href="#">12 rue de l'Industrie<br/>33000 Bordeaux</a></li>
         </ul>
       </div>
     </div>
+
     <div class="footer-bottom">
-      <span>© 2026 KUBIX. Tous droits réservés.</span>
-      <span>Fait avec ❤️ pour les makers</span>
+      <span>© 2026 TRIAXE SAS — Tous droits réservés</span>
+      <span>Site fictif — Projet d'étude</span>
     </div>
   </div>
 </footer>
