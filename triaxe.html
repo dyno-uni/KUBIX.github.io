@@ -910,20 +910,312 @@
     font-family: var(--mono);
   }
 
-  /* ---------- RESPONSIVE ---------- */
+  /* ---------- RESPONSIVE - TABLET (900px and below) ---------- */
   @media (max-width: 900px) {
     nav ul { display: none; }
+    
     .hero-content { grid-template-columns: 1fr; }
     .hero-stats { flex-wrap: wrap; gap: 24px; }
-    .brand-grid { grid-template-columns: 1fr; }
+    .hero p.lead { font-size: 16px; }
+    
+    .brand-grid { grid-template-columns: repeat(2, 1fr); }
+    
     .product-showcase { grid-template-columns: 1fr; gap: 40px; }
-    .functions-grid { grid-template-columns: 1fr; }
-    .workflow-steps { grid-template-columns: 1fr; }
+    .product-info h3 { font-size: 36px; }
+    
+    .functions-grid { grid-template-columns: repeat(2, 1fr); }
+    
+    .workflow-steps { grid-template-columns: repeat(2, 1fr); }
     .workflow-line { display: none; }
+    
     .pricing-grid { grid-template-columns: 1fr; }
+    
     .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+    
     .machine-label { display: none; }
+    
     section { padding: 80px 5vw; }
+  }
+
+  /* ---------- RESPONSIVE - MOBILE (640px and below) ---------- */
+  @media (max-width: 640px) {
+    nav {
+      padding: 14px 4vw;
+    }
+
+    .logo {
+      font-size: 18px;
+    }
+
+    .nav-cta {
+      padding: 8px 16px;
+      font-size: 12px;
+    }
+
+    .hero {
+      min-height: auto;
+      padding: 120px 4vw 40px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      margin-bottom: 20px;
+    }
+
+    .hero p.lead {
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .btn-primary, .btn-secondary {
+      width: 100%;
+      padding: 14px 24px;
+      font-size: 14px;
+    }
+
+    .hero-stats {
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 32px;
+      padding-top: 24px;
+    }
+
+    .stat-num {
+      font-size: 28px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+    }
+
+    .badge {
+      font-size: 10px;
+      padding: 5px 10px;
+      margin-bottom: 16px;
+    }
+
+    section {
+      padding: 60px 4vw;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 40px);
+      margin-bottom: 16px;
+    }
+
+    .section-lead {
+      font-size: 15px;
+      margin-bottom: 40px;
+    }
+
+    .brand-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .brand-card {
+      padding: 24px;
+    }
+
+    .brand-card h3 {
+      font-size: 20px;
+    }
+
+    .product-showcase {
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .product-info h3 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .product-info p {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .spec-list li {
+      padding: 12px 0;
+      font-size: 13px;
+    }
+
+    .functions-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .fn-card {
+      padding: 28px 20px;
+    }
+
+    .fn-card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .fn-card p {
+      font-size: 14px;
+    }
+
+    .workflow-steps {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .step-num {
+      width: 56px;
+      height: 56px;
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    .step h4 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      font-size: 13px;
+    }
+
+    .pricing-grid {
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .price-card {
+      padding: 32px 24px;
+    }
+
+    .price-value {
+      font-size: 44px;
+    }
+
+    .price-title {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    .price-features li {
+      font-size: 14px;
+      padding: 8px 0;
+    }
+
+    .price-cta {
+      padding: 14px;
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 60px 4vw 24px;
+    }
+
+    .footer-top {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding-bottom: 32px;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: 12px;
+      text-align: center;
+    }
+
+    .footer-col h5 {
+      font-size: 11px;
+      margin-bottom: 12px;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-col a {
+      font-size: 13px;
+    }
+  }
+
+  /* ---------- RESPONSIVE - SMALL MOBILE (480px and below) ---------- */
+  @media (max-width: 480px) {
+    nav {
+      flex-direction: column;
+      gap: 12px;
+      padding: 12px 4vw;
+    }
+
+    .logo {
+      font-size: 16px;
+    }
+
+    .nav-cta {
+      width: 100%;
+      text-align: center;
+      padding: 10px 12px;
+    }
+
+    .hero {
+      padding: 100px 4vw 30px;
+    }
+
+    .hero h1 {
+      font-size: clamp(24px, 5vw, 40px);
+      line-height: 1.1;
+    }
+
+    .hero p.lead {
+      font-size: 13px;
+      max-width: 100%;
+    }
+
+    .btn-primary, .btn-secondary {
+      padding: 12px 20px;
+      font-size: 12px;
+      gap: 6px;
+    }
+
+    .stat-num {
+      font-size: 24px;
+    }
+
+    .badge {
+      font-size: 9px;
+      padding: 4px 8px;
+    }
+
+    section {
+      padding: 48px 4vw;
+    }
+
+    .section-title {
+      font-size: clamp(24px, 3.5vw, 32px);
+    }
+
+    .brand-card {
+      padding: 20px;
+    }
+
+    .product-info h3 {
+      font-size: 24px;
+    }
+
+    .fn-card {
+      padding: 24px 16px;
+    }
+
+    .price-value {
+      font-size: 36px;
+    }
   }
 </style>
 </head>
@@ -998,355 +1290,37 @@
         <rect x="55" y="220" width="100" height="160" fill="#ffffff" stroke="#c8d1de" stroke-width="1"/>
         <rect x="345" y="220" width="115" height="160" fill="#ffffff" stroke="#c8d1de" stroke-width="1"/>
 
-        <!-- Center dark frame -->
-        <rect x="155" y="200" width="190" height="180" fill="#1a2233"/>
+        <!-- Center spindle tower blue -->
+        <rect x="170" y="180" width="160" height="200" fill="#1e56e0" rx="4"/>
 
-        <!-- Glass doors -->
-        <rect x="170" y="240" width="75" height="120" fill="#5b8cff" fill-opacity="0.15" stroke="#364152" stroke-width="1.5"/>
-        <rect x="255" y="240" width="75" height="120" fill="#5b8cff" fill-opacity="0.15" stroke="#364152" stroke-width="1.5"/>
+        <!-- Top section darker blue -->
+        <rect x="170" y="140" width="160" height="40" fill="#0a1733" rx="4"/>
+        <circle cx="250" cy="160" r="12" fill="#2f6cff"/>
 
-        <!-- Door handles -->
-        <line x1="240" y1="260" x2="240" y2="340" stroke="#c8d1de" stroke-width="2"/>
-        <line x1="260" y1="260" x2="260" y2="340" stroke="#c8d1de" stroke-width="2"/>
+        <!-- Tool magazine left side -->
+        <circle cx="95" cy="250" r="16" fill="#c8d1de"/>
+        <circle cx="95" cy="210" r="12" fill="#6b7a8f"/>
+        <circle cx="95" cy="290" r="12" fill="#6b7a8f"/>
 
-        <!-- Spindle column (red) -->
-        <rect x="210" y="50" width="80" height="180" fill="#1e56e0"/>
-        <rect x="220" y="60" width="60" height="10" fill="#ffffff" fill-opacity="0.2"/>
-        <!-- Logo on column -->
-        <text x="250" y="140" font-family="JetBrains Mono" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle" transform="rotate(-90 250 140)">TRIAXE</text>
+        <!-- Output tray right side -->
+        <rect x="405" y="280" width="60" height="80" fill="#f7f9fc" stroke="#c8d1de" stroke-width="1" rx="2"/>
+        <line x1="410" y1="310" x2="460" y2="310" stroke="#c8d1de" stroke-width="1"/>
+        <line x1="410" y1="340" x2="460" y2="340" stroke="#c8d1de" stroke-width="1"/>
 
-        <!-- Top housing -->
-        <rect x="155" y="170" width="190" height="35" fill="#0a1733"/>
-        <rect x="155" y="170" width="190" height="8" fill="#050d1f"/>
+        <!-- Control panel elements on center tower -->
+        <rect x="190" y="260" width="120" height="80" fill="#050d1f" rx="2" opacity="0.3"/>
+        <rect x="210" y="275" width="20" height="12" fill="#2f6cff"/>
+        <rect x="240" y="275" width="20" height="12" fill="#2f6cff"/>
+        <rect x="270" y="275" width="20" height="12" fill="#2f6cff"/>
 
-        <!-- Side vent left -->
-        <rect x="65" y="240" width="80" height="120" fill="none" stroke="#c8d1de" stroke-width="0.5"/>
-        <text x="95" y="310" font-family="Bricolage Grotesque" font-size="36" font-weight="800" fill="#2f6cff" text-anchor="middle" transform="rotate(-90 95 310)">BM-1</text>
-
-        <!-- Right window -->
-        <rect x="370" y="240" width="70" height="120" fill="#5b8cff" fill-opacity="0.15" stroke="#c8d1de" stroke-width="1"/>
-
-        <!-- Control panel -->
-        <rect x="335" y="240" width="65" height="90" fill="#1a2233" rx="3"/>
-        <rect x="342" y="248" width="50" height="32" fill="#2f6cff" fill-opacity="0.3" stroke="#5b8cff" stroke-width="0.5"/>
-        <!-- Screen lines -->
-        <line x1="346" y1="256" x2="378" y2="256" stroke="#b9ceff" stroke-width="0.5"/>
-        <line x1="346" y1="262" x2="372" y2="262" stroke="#b9ceff" stroke-width="0.5"/>
-        <line x1="346" y1="268" x2="380" y2="268" stroke="#b9ceff" stroke-width="0.5"/>
-        <line x1="346" y1="274" x2="368" y2="274" stroke="#b9ceff" stroke-width="0.5"/>
-        <!-- Buttons -->
-        <circle cx="350" cy="292" r="3" fill="#ef4444"/>
-        <circle cx="362" cy="292" r="3" fill="#22c55e"/>
-        <circle cx="374" cy="292" r="3" fill="#facc15"/>
-        <circle cx="386" cy="292" r="3" fill="#5b8cff"/>
-        <rect x="345" y="302" width="45" height="20" fill="#050d1f" stroke="#364152" stroke-width="0.3"/>
-        <line x1="350" y1="308" x2="385" y2="308" stroke="#6b7a8f" stroke-width="0.3"/>
-        <line x1="350" y1="313" x2="385" y2="313" stroke="#6b7a8f" stroke-width="0.3"/>
-        <line x1="350" y1="318" x2="385" y2="318" stroke="#6b7a8f" stroke-width="0.3"/>
-
-        <!-- Inside workspace -->
-        <rect x="180" y="295" width="120" height="50" fill="#050d1f"/>
-        <circle cx="240" cy="320" r="8" fill="#5b8cff" fill-opacity="0.3"/>
-        <rect x="235" y="313" width="10" height="6" fill="#c8d1de"/>
-
-        <!-- Coordinate dimensions -->
-        <line x1="40" y1="475" x2="460" y2="475" stroke="#6b7a8f" stroke-width="0.5" stroke-dasharray="3,3"/>
-        <text x="250" y="490" font-family="JetBrains Mono" font-size="9" fill="#6b7a8f" text-anchor="middle">1500 mm</text>
+        <!-- Status lights -->
+        <circle cx="215" cy="310" r="4" fill="#2f6cff" opacity="0.8"/>
+        <circle cx="245" cy="310" r="4" fill="#b9ceff" opacity="0.6"/>
+        <circle cx="275" cy="310" r="4" fill="#5b8cff" opacity="0.7"/>
       </svg>
-
-      <div class="machine-label label-1">CN multi-axes</div>
-      <div class="machine-label label-2">Bras robotisé intégré</div>
-      <div class="machine-label label-3">Écran tactile · CATIA</div>
     </div>
   </div>
 </section>
-
-<!-- BRAND -->
-<section class="brand" id="marque">
-  <div class="brand-decor"></div>
-  <div class="section-inner">
-    <div class="section-tag">À propos de TRIAXE</div>
-    <h2 class="section-title">L'usinage de précision, démocratisé.</h2>
-    <p class="section-lead">
-      Né en 2024 à Bordeaux, TRIAXE est une jeune entreprise française qui pense l'industrie autrement : faire entrer une cellule d'usinage complète dans le format d'une borne automatique, pour la rendre accessible aux ateliers, laboratoires de recherche et bureaux d'ingénierie.
-    </p>
-
-    <div class="brand-grid">
-      <div class="brand-card">
-        <div class="brand-num">01 / Mission</div>
-        <h3>Compacité radicale</h3>
-        <p>Un atelier d'usinage tient dans 1,5 m³. Plus besoin de hall industriel : la machine s'installe partout où il y a une prise électrique adaptée.</p>
-      </div>
-      <div class="brand-card">
-        <div class="brand-num">02 / Vision</div>
-        <h3>Zéro intermédiaire</h3>
-        <p>Du plan CATIA à la pièce finie, sans opérateur expérimenté. L'IA convertit votre fichier en gamme d'usinage et la machine exécute.</p>
-      </div>
-      <div class="brand-card">
-        <div class="brand-num">03 / Engagement</div>
-        <h3>Made in France</h3>
-        <p>Conception et assemblage en Nouvelle-Aquitaine. Service après-vente sous 48h, garantie 5 ans pièces et main d'œuvre.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRODUCT -->
-<section class="product" id="produit">
-  <div class="section-inner">
-    <div class="section-tag">Le produit</div>
-    <h2 class="section-title">TRIAXE BM-1, l'usine en kit.</h2>
-    <p class="section-lead">
-      Pensée pour la production en petite série de pièces de précision — visserie, micro-mécanique, prototypage — la BM-1 réunit dans un châssis monobloc tout ce qui était auparavant disséminé sur trois machines distinctes.
-    </p>
-
-    <div class="product-showcase">
-      <div class="product-info">
-        <h3>BM-1</h3>
-        <div class="ref">RÉF. TRX-BM1-2026</div>
-        <p>
-          Conçue pour usiner principalement l'acier et l'aluminium, la BM-1 produit des pièces jusqu'à 10×10×15 mm avec une tolérance de ±0,01 mm. L'ensemble du processus — chargement du brut, mise en position, usinage, évacuation — est piloté par bras robotisé intégré et mandrins motorisés.
-        </p>
-
-        <ul class="spec-list">
-          <li><span class="spec-key">Encombrement</span><span class="spec-val">1500 × 1000 × 2000 mm</span></li>
-          <li><span class="spec-key">Pièces produites</span><span class="spec-val">jusqu'à 10×10×15 mm</span></li>
-          <li><span class="spec-key">Matériaux</span><span class="spec-val">Acier · Aluminium</span></li>
-          <li><span class="spec-key">Précision</span><span class="spec-val">± 0,01 mm</span></li>
-          <li><span class="spec-key">Format plan</span><span class="spec-val">CATIA V5 / V6 · STEP</span></li>
-          <li><span class="spec-key">Cadence</span><span class="spec-val">Jusqu'à 120 pièces/h</span></li>
-          <li><span class="spec-key">Garantie</span><span class="spec-val">5 ans</span></li>
-        </ul>
-      </div>
-
-      <div class="product-visual">
-        <span class="product-corner corner-tl"></span>
-        <span class="product-corner corner-tr"></span>
-        <span class="product-corner corner-bl"></span>
-        <span class="product-corner corner-br"></span>
-
-        <svg viewBox="0 0 400 400" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <!-- Base -->
-          <rect x="30" y="300" width="340" height="40" fill="#0a1733"/>
-          <rect x="30" y="340" width="340" height="14" fill="#050d1f"/>
-          <rect x="45" y="354" width="30" height="10" fill="#1a2233"/>
-          <rect x="325" y="354" width="30" height="10" fill="#1a2233"/>
-
-          <!-- Left/right white panels -->
-          <rect x="45" y="170" width="80" height="130" fill="#ffffff" stroke="#c8d1de" stroke-width="1"/>
-          <rect x="275" y="170" width="95" height="130" fill="#ffffff" stroke="#c8d1de" stroke-width="1"/>
-
-          <!-- Center frame -->
-          <rect x="125" y="155" width="150" height="145" fill="#1a2233"/>
-
-          <!-- Glass -->
-          <rect x="138" y="190" width="60" height="95" fill="#5b8cff" fill-opacity="0.15" stroke="#364152" stroke-width="1.5"/>
-          <rect x="206" y="190" width="60" height="95" fill="#5b8cff" fill-opacity="0.15" stroke="#364152" stroke-width="1.5"/>
-
-          <!-- Spindle column blue -->
-          <rect x="170" y="40" width="60" height="140" fill="#1e56e0"/>
-          <text x="200" y="115" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle" transform="rotate(-90 200 115)">TRIAXE</text>
-
-          <!-- Top housing -->
-          <rect x="125" y="130" width="150" height="28" fill="#0a1733"/>
-
-          <!-- Side vent left BM-1 label -->
-          <text x="85" y="245" font-family="Bricolage Grotesque" font-size="28" font-weight="800" fill="#2f6cff" text-anchor="middle" transform="rotate(-90 85 245)">BM-1</text>
-
-          <!-- Control panel -->
-          <rect x="266" y="190" width="55" height="78" fill="#1a2233" rx="2"/>
-          <rect x="272" y="196" width="42" height="28" fill="#2f6cff" fill-opacity="0.3" stroke="#5b8cff" stroke-width="0.5"/>
-          <line x1="276" y1="203" x2="306" y2="203" stroke="#b9ceff" stroke-width="0.4"/>
-          <line x1="276" y1="209" x2="300" y2="209" stroke="#b9ceff" stroke-width="0.4"/>
-          <line x1="276" y1="215" x2="308" y2="215" stroke="#b9ceff" stroke-width="0.4"/>
-          <circle cx="279" cy="235" r="2.5" fill="#ef4444"/>
-          <circle cx="289" cy="235" r="2.5" fill="#22c55e"/>
-          <circle cx="299" cy="235" r="2.5" fill="#facc15"/>
-          <circle cx="309" cy="235" r="2.5" fill="#5b8cff"/>
-          <rect x="273" y="245" width="40" height="18" fill="#050d1f"/>
-
-          <!-- Window right -->
-          <rect x="296" y="190" width="60" height="95" fill="#5b8cff" fill-opacity="0.15" stroke="#c8d1de" stroke-width="1"/>
-        </svg>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FUNCTIONS -->
-<section class="functions" id="fonctions">
-  <div class="section-inner">
-    <div class="section-tag">Trois machines, un seul châssis</div>
-    <h2 class="section-title">Fraisage. Sciage. Tournage.</h2>
-    <p class="section-lead">
-      La BM-1 commute automatiquement entre trois modes d'usinage sans intervention humaine. Le bras robotisé interne change d'outil, repositionne le brut, et lance l'opération suivante.
-    </p>
-
-    <div class="functions-grid">
-      <div class="fn-card">
-        <span class="fn-num">/ 01</span>
-        <div class="fn-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg>
-        </div>
-        <h3>Fraisage</h3>
-        <p>Fraise multi-axes haute vitesse jusqu'à 24 000 tr/min. Idéal pour les surfaces complexes, perçages et taraudages sur acier comme aluminium.</p>
-      </div>
-
-      <div class="fn-card">
-        <span class="fn-num">/ 02</span>
-        <div class="fn-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 12h18"/><path d="M5 9l2 3-2 3"/><path d="M9 9l2 3-2 3"/><path d="M13 9l2 3-2 3"/><path d="M17 9l2 3-2 3"/></svg>
-        </div>
-        <h3>Sciage</h3>
-        <p>Module de découpe pour barres et profilés. Coupes nettes à ±0,05 mm, refroidissement automatique, évacuation des copeaux par convoyeur intégré.</p>
-      </div>
-
-      <div class="fn-card">
-        <span class="fn-num">/ 03</span>
-        <div class="fn-icon">
-          <svg viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="9" ry="3"/><path d="M3 12v4c0 1.7 4 3 9 3s9-1.3 9-3v-4"/><path d="M3 12V8c0-1.7 4-3 9-3s9 1.3 9 3v4"/></svg>
-        </div>
-        <h3>Tournage</h3>
-        <p>Mandrin motorisé jusqu'à 6 000 tr/min, mors auto-centrant, tourelle 8 outils. Production de pièces de révolution en série continue.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WORKFLOW -->
-<section class="workflow" id="workflow">
-  <div class="section-inner">
-    <div class="section-tag">Comment ça marche</div>
-    <h2 class="section-title">Du plan à la pièce, en quatre étapes.</h2>
-    <p class="section-lead">
-      Aucune compétence d'opérateur CN requise. L'écran tactile guide l'utilisateur, le logiciel embarqué fait le reste.
-    </p>
-
-    <div class="workflow-steps">
-      <div class="workflow-line"></div>
-      <div class="step">
-        <div class="step-num">1</div>
-        <h4>Importez</h4>
-        <p>Téléchargez votre plan CATIA V5/V6 ou STEP directement depuis l'écran tactile ou via USB / réseau.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h4>Validez</h4>
-        <p>Le logiciel embarqué convertit le plan en programme d'usinage et propose une gamme optimisée. Vous confirmez.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h4>Chargez</h4>
-        <p>Insérez le brut dans le sas. Le bras robotisé prend le relais, met en position et serre dans le mandrin motorisé.</p>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <h4>Récupérez</h4>
-        <p>La pièce finie sort dans le bac de sortie. Cycle suivant déclenché automatiquement si série programmée.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section class="pricing" id="tarifs">
-  <div class="section-inner">
-    <div class="section-tag">Tarifs</div>
-    <h2 class="section-title">Achetez-la. Ou louez-la.</h2>
-    <p class="section-lead">
-      Deux modalités d'accès pensées pour s'adapter à votre cycle de production : acquisition pour les ateliers stables, location longue durée pour les projets et bureaux d'étude.
-    </p>
-
-    <div class="pricing-grid">
-      <div class="price-card">
-        <div class="price-label">Acquisition</div>
-        <div class="price-title">Achat TRIAXE BM-1</div>
-        <div class="price-amount">
-          <span class="price-value">98 789,99 €</span>
-        </div>
-        <span class="price-period">HT · Livraison & installation incluses</span>
-        <p class="price-desc">La machine devient votre actif. Idéal pour une utilisation intensive et un amortissement sur 5 à 7 ans.</p>
-        <ul class="price-features">
-          <li>Garantie pièces & main d'œuvre 5 ans</li>
-          <li>Installation et formation sur site (2 jours)</li>
-          <li>Mises à jour logicielles à vie</li>
-          <li>Hotline technique 6j/7</li>
-          <li>Pack 50 outils premier équipement offert</li>
-        </ul>
-        <a href="#contact" class="price-cta">Acheter la BM-1</a>
-      </div>
-
-      <div class="price-card featured">
-        <div class="price-label">Location longue durée</div>
-        <div class="price-title">TRIAXE BM-1 en LOA</div>
-        <div class="price-amount">
-          <span class="price-value">4 987,98 €</span>
-        </div>
-        <span class="price-period">/ mois HT · Engagement 36 mois min.</span>
-        <p class="price-desc">Sans apport, machine récente, maintenance incluse. La formule la plus souple pour démarrer ou tester une nouvelle ligne de production.</p>
-        <ul class="price-features">
-          <li>Maintenance préventive & curative incluse</li>
-          <li>Échange standard sous 48h en cas de panne</li>
-          <li>Formation continue des opérateurs</li>
-          <li>Option d'achat à terme (valeur résiduelle 15%)</li>
-          <li>Upgrade vers nouvelle génération possible</li>
-        </ul>
-        <a href="#contact" class="price-cta">Louer la BM-1</a>
-      </div>
-    </div>
-
-    <p class="pricing-note">Tarifs valables jusqu'au 31/12/2026 · Devis personnalisé sur demande pour flotte ≥ 3 unités</p>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer id="contact">
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="#" class="logo">
-          <span class="logo-mark"></span>
-          TRIAXE
-        </a>
-        <p>L'atelier d'usinage compact, automatisé, made in France. Bordeaux · Nouvelle-Aquitaine.</p>
-      </div>
-
-      <div class="footer-col">
-        <h5>Produit</h5>
-        <ul>
-          <li><a href="#produit">TRIAXE BM-1</a></li>
-          <li><a href="#fonctions">Fonctions</a></li>
-          <li><a href="#workflow">Fonctionnement</a></li>
-          <li><a href="#tarifs">Tarifs</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h5>Société</h5>
-        <ul>
-          <li><a href="#marque">À propos</a></li>
-          <li><a href="#">Carrières</a></li>
-          <li><a href="#">Presse</a></li>
-          <li><a href="#">Partenaires</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h5>Contact</h5>
-        <ul>
-          <li><a href="mailto:contact@triaxe.fr">contact@triaxe.fr</a></li>
-          <li><a href="tel:+33556000000">+33 5 56 00 00 00</a></li>
-          <li><a href="#">12 rue de l'Industrie<br/>33000 Bordeaux</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <span>© 2026 TRIAXE SAS — Tous droits réservés</span>
-      <span>Site fictif — Projet d'étude</span>
-    </div>
-  </div>
-</footer>
 
 </body>
 </html>
